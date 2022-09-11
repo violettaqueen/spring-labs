@@ -9,10 +9,10 @@
     <relativePath/> <!-- lookup parent from repository -->
   </parent>
   <groupId>com.cydeo</groupId>
-  <artifactId>stream-practice</artifactId>
+  <artifactId>lab-00-coupling</artifactId>
   <version>0.0.1-SNAPSHOT</version>
-  <name>stream-practice</name>
-  <description>stream-practice</description>
+  <name>lab-00-coupling</name>
+  <description>lab-00-coupling</description>
   <properties>
     <java.version>11</java.version>
   </properties>
