@@ -24,8 +24,6 @@ public class CartServiceTest {
     @Autowired
     private CartServiceImpl cartService;
     @Autowired
-    private CartRepository cartRepository;
-    @Autowired
     private StockService stockService;
 
 
@@ -36,7 +34,6 @@ public class CartServiceTest {
         product.setPrice(new BigDecimal(12));
         product.setQuantity(3);
         product.setRemainingQuantity(3);
-        when(stockService.checkStockIsAvailable(product,2)).thenReturn(true);
         Cart cart = cartService.addCart(product, 2);
         Assert.assertEquals(new BigDecimal(24), cart.getCartTotalAmount());
     }
