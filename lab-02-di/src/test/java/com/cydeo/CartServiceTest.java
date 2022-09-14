@@ -24,6 +24,8 @@ public class CartServiceTest {
     @Autowired
     private CartServiceImpl cartService;
     @Autowired
+    private CartRepository cartRepository;
+    @Autowired
     private StockService stockService;
 
 
