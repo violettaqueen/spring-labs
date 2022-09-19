@@ -9,7 +9,7 @@ import java.math.BigDecimal;
 import java.util.UUID;
 @Getter
 @Setter
-@Component
+
 public class Current {
     private Currency currency;
     private BigDecimal amount;

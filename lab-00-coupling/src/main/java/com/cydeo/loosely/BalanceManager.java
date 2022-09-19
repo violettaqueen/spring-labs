@@ -8,13 +8,13 @@ import java.math.BigDecimal;
 
 public class BalanceManager{
 
-    private final Balance balance;
+    //private final Balance balance;
 
 
-    public BalanceManager(Balance balance, BigDecimal amount) {
-        this.balance = balance;
+    //public BalanceManager(Balance balance, BigDecimal amount) {
+      //  this.balance = balance;
 
-    }
+   // }
 
     public boolean checkout(Balance balance, BigDecimal amount
                             // add method parameters

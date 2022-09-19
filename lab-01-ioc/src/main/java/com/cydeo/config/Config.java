@@ -13,8 +13,16 @@ import java.util.UUID;
 public class Config {
 
     @Bean
-    public Current current(){
-        return new Current();
+    public Current current(Currency currency){ //we had to set all fields because we do not have a constructor
+        Current current = new Current();
+        current.setAccountId(UUID.randomUUID());
+        current.setAmount(new BigDecimal(670));
+        current.setCurrency(currency); //autowiring
+        return current;
+    }
+    @Bean
+    public Currency currency(){
+        return new Currency("113", "Dollar");
     }
     @Bean
     public Saving savings(){

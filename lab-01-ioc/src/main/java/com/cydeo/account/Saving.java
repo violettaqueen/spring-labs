@@ -10,7 +10,7 @@ import java.util.UUID;
 
 @Getter
 @Setter
-@Component
+
 public class Saving {
     private Currency currency;
     private BigDecimal amount;
