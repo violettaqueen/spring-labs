@@ -1,9 +1,13 @@
 package com.cydeo.config;
 
+import com.cydeo.Currency;
 import com.cydeo.account.Current;
 import com.cydeo.account.Saving;
 import org.springframework.context.annotation.Bean;
 import org.springframework.context.annotation.Configuration;
+
+import java.math.BigDecimal;
+import java.util.UUID;
 
 @Configuration
 public class Config {
@@ -14,6 +18,11 @@ public class Config {
     }
     @Bean
     public Saving savings(){
-        return new Saving();
+        Saving savings = new Saving();
+        savings.setAccountId(UUID.randomUUID());
+        savings.setAmount(new BigDecimal(500));
+        savings.setCurrency(new Currency("112", "Dollar"));
+        return savings;
+
     }
 }
