@@ -3,15 +3,21 @@ package com.cydeo.service;
 import com.cydeo.model.Cart;
 import com.cydeo.model.Product;
 import com.cydeo.repository.CartRepository;
+import org.springframework.stereotype.Component;
 
 import java.math.BigDecimal;
 import java.util.HashMap;
 import java.util.Map;
 
-
+@Component
 public class CartServiceImpl implements CartService{
-    private CartRepository cartRepository;
-    private StockService service;
+    private final CartRepository cartRepository;
+    private final StockService service;
+
+    public CartServiceImpl(CartRepository cartRepository, StockService service) {
+        this.cartRepository = cartRepository;
+        this.service = service;
+    }
 
     public Cart addCart(Product product, int quantity) {
         boolean stockAvailable = service.checkStockIsAvailable(product, quantity);
