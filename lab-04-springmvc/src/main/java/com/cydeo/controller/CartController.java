@@ -19,6 +19,7 @@ public class CartController {
 
     @RequestMapping("/cart-list")
     public String cartList(Model model){
+        model.addAttribute("cartList",cartService.retrieveCartList());
 
         return "cart/cart-list.html";
     }
