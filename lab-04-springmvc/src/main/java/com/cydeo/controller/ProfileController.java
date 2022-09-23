@@ -14,7 +14,9 @@ public class ProfileController {
     public String profilePage(Model model){
 
         Profile profile = new Profile("violetta@gmail.com", "202-570-6124", "Violetta", "Queen", "Vi123", LocalDateTime.of(2021,12,5, 12, 34));
+        model.addAttribute("profile", profile);
 
-        return "profile/profile-info";
+
+        return "profile/profile-info.html";
     }
 }

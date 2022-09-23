@@ -10,25 +10,35 @@ import java.math.BigDecimal;
 import java.util.ArrayList;
 import java.util.List;
 import java.util.UUID;
+import java.util.stream.Collectors;
 
 @Service
 public class ProductServiceImpl implements ProductService {
     public static List<Product> PRODUCT_LIST = new ArrayList<>();
-    @Override
-    public List<Product> searchProduct(String name){
-        // todo implement search structure using string startsWith function
-        return new ArrayList<>();
+    Product product;
+
+    public ProductServiceImpl(Product product) {
+        this.product = product;
     }
 
     @Override
-    public void initialiseProductList(){
+    public List<Product> searchProduct(String name) {
+        // todo implement search structure using string startsWith function
+        return PRODUCT_LIST.stream()
+                .filter(product -> product.getName().startsWith(name))
+                .collect(Collectors.toList());
+
+    }
+
+    @Override
+    public void initialiseProductList() {             //creating product object
         Product product1 = new Product();
         product1.setId(UUID.randomUUID());
         product1.setName("milk");
         product1.setPrice(new BigDecimal(7));
         product1.setRemainingQuantity(24);
         product1.setQuantity(24);
-        PRODUCT_LIST.add(product1);
+        PRODUCT_LIST.add(product1);                 //adding product in the list
 
 
         Product product2 = new Product();

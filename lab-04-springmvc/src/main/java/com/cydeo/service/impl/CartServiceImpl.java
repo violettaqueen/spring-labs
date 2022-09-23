@@ -6,26 +6,39 @@ import com.cydeo.service.CartService;
 import com.cydeo.model.Cart;
 import com.cydeo.model.CartItem;
 import com.cydeo.service.CartService;
+import com.cydeo.service.ProductService;
 import org.springframework.stereotype.Service;
 
 import java.math.BigDecimal;
 import java.util.ArrayList;
 import java.util.List;
 import java.util.UUID;
+import java.util.stream.Collectors;
 
 import static com.cydeo.service.impl.ProductServiceImpl.PRODUCT_LIST;
 
 @Service
 public class CartServiceImpl implements CartService {
     public static List<Cart> CART_LIST = new ArrayList<>();
+    Cart cart;
+
+    public CartServiceImpl(Cart cart) {
+        this.cart = cart;
+    }
+
     @Override
     public List<Cart> retrieveCartList() {
         return CART_LIST;
     }
+
     @Override
     public List<CartItem> retrieveCartDetail(UUID cartId) {
         // todo implement method using stream
-        return new ArrayList<>();
+
+        return cart.getCartItemList().stream()
+                .filter(cart -> cart.getProduct().equals(cartId))
+                .collect(Collectors.toList());
+
     }
 
     @Override
@@ -63,9 +76,13 @@ public class CartServiceImpl implements CartService {
         BigDecimal cart2TotalAmount = BigDecimal.ZERO;
 
         // todo change to stream
-        for (CartItem cartItem : cartItemList){
+        for (CartItem cartItem : cartItemList) {
             cart1TotalAmount = cart1TotalAmount.add(cartItem.getProduct().getPrice().multiply(BigDecimal.valueOf(cartItem.getQuantity())));
         }
+
+        cartItemList.stream()
+                .map(cartItem -> cartItem.getProduct().getPrice().multiply(BigDecimal.valueOf(cartItem.getQuantity())))
+                .collect(Collectors.toList());
 
         CART_LIST.add(cart1);
         cart1.setCartTotalAmount(cart1TotalAmount);
@@ -74,7 +91,7 @@ public class CartServiceImpl implements CartService {
         cart2.setCartItemList(cartItemList1);
 
         // todo change to stream
-        for (CartItem cartItem : cartItemList1){
+        for (CartItem cartItem : cartItemList1) {
             cart2TotalAmount = cart1TotalAmount.add(cartItem.getProduct().getPrice().multiply(BigDecimal.valueOf(cartItem.getQuantity())));
         }
 
