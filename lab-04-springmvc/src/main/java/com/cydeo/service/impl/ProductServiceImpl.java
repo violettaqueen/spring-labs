@@ -15,11 +15,6 @@ import java.util.stream.Collectors;
 @Service
 public class ProductServiceImpl implements ProductService {
     public static List<Product> PRODUCT_LIST = new ArrayList<>();
-    Product product;
-
-    public ProductServiceImpl(Product product) {
-        this.product = product;
-    }
 
     @Override
     public List<Product> searchProduct(String name) {
