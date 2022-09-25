@@ -13,6 +13,7 @@ public class DataGenerator{
                 new Employee("Jon", "Brown"), new Employee("Liz", "Queen"),
                 new Employee("Ann", "Stone")
         );
+        return employeeList;
     }
 
 
