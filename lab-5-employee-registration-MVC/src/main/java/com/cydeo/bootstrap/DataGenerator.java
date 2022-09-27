@@ -7,14 +7,7 @@ import java.util.List;
 
 public class DataGenerator{
 
-    public static List<Employee> createEmployee(){
 
-         List<Employee> employeeList = Arrays.asList(
-                new Employee("Jon", "Brown"), new Employee("Liz", "Queen"),
-                new Employee("Ann", "Stone")
-        );
-        return employeeList;
-    }
 
 
 

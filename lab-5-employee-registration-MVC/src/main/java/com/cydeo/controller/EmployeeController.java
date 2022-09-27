@@ -3,16 +3,15 @@ package com.cydeo.controller;
 import com.cydeo.bootstrap.DataGenerator;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
+import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.RequestMapping;
 
 @Controller
 @RequestMapping("/employee")
 public class EmployeeController {
-    @RequestMapping("/register")
-    public String register(Model model){
+    @GetMapping("/register")
+    public String createEmployee(){
 
-        model.addAttribute("employee", DataGenerator.createEmployee());
-
-        return "employee/register";
+        return "employee/employee-create";
     }
 }
