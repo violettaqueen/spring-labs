@@ -10,7 +10,9 @@ import org.springframework.web.bind.annotation.RequestMapping;
 public class EmployeeController {
     @RequestMapping("/register")
     public String register(Model model){
-        model.addAttribute("students", DataGenerator.createEmployee());
+
+        model.addAttribute("employee", DataGenerator.createEmployee());
+
         return "employee/register";
     }
 }
