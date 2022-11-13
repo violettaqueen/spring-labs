@@ -15,7 +15,7 @@ import java.util.Optional;
 @Repository
 public interface BalanceRepository extends JpaRepository<Balance, Long> {
     //Write a derived query to check balance exists for specific customer
-    boolean existsBy(Customer customer); // or String username?
+    boolean existsBy(Customer customer); // Long id?
     //Write a derived query to get balance for specific customer
     Optional<Balance> findByCustomer(Customer customer);
     //Write a native query to get top 5 max balance

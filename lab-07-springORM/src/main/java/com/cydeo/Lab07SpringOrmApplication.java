@@ -8,6 +8,11 @@ public class Lab07SpringOrmApplication {
 
     public static void main(String[] args) {
         SpringApplication.run(Lab07SpringOrmApplication.class, args);
+
+
+
+
+
     }
 
 }
