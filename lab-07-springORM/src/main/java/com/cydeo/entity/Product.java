@@ -1,7 +1,9 @@
 package com.cydeo.entity;
 
 import lombok.Data;
+import lombok.Getter;
 import lombok.NoArgsConstructor;
+import lombok.Setter;
 
 import javax.persistence.*;
 import java.math.BigDecimal;
@@ -9,7 +11,8 @@ import java.util.List;
 
 @Entity
 @NoArgsConstructor
-@Data
+@Getter
+@Setter
 public class Product extends BaseEntity {
 
     private String name;
@@ -23,5 +26,13 @@ public class Product extends BaseEntity {
             inverseJoinColumns = @JoinColumn(name = "c_id"))
     private List<Category> categoryList;
 
-
+    @Override
+    public String toString() {
+        return "Product{" +
+                "name='" + name + '\'' +
+                ", price=" + price +
+                ", quantity=" + quantity +
+                ", remaining_quantity=" + remaining_quantity +
+                '}';
+    }
 }

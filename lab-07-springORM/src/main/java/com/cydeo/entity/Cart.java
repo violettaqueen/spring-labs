@@ -2,14 +2,17 @@ package com.cydeo.entity;
 
 import com.cydeo.enums.CartState;
 import lombok.Data;
+import lombok.Getter;
 import lombok.NoArgsConstructor;
+import lombok.Setter;
 
 import javax.persistence.*;
 import java.util.List;
 
 @Entity
 @NoArgsConstructor
-@Data
+@Getter
+@Setter
 public class Cart extends BaseEntity{
 
     @Enumerated(EnumType.STRING)
@@ -21,8 +24,15 @@ public class Cart extends BaseEntity{
     @ManyToOne
     private Customer customer;
 
+    public Cart(CartState cartState) {
+        this.cartState = cartState;
+    }
 
-
-
-
+    @Override
+    public String toString() {
+        return "Cart{" +
+                "cartState=" + cartState +
+                ", discount=" + discount +
+                '}';
+    }
 }

@@ -42,12 +42,12 @@ public interface OrderRepository extends JpaRepository<Order,Long > {
 
 
     //Write a JPQL query to get all orders by totalPrice and paidPrice are equals
-    @Query("select * from Order o where o.totalPrice = o.paidPrice")
+    @Query("select o from Order o where o.totalPrice = o.paidPrice")
     List<Order> findAllByTotalPriceAndPaidPriceEquals();
 
 
     //Write a derived query to get all orders by totalPrice and paidPrice are not equals and discount is not null
-    @Query("select * from Order o where o.paidPrice <> o.totalPrice and o.cart.discount is not null")
+    @Query("select o from Order o where o.paidPrice <> o.totalPrice and o.cart.discount is not null")
     List<Order> findAllByTotalPriceAndPaidPriceNotEqualsAndDiscountIdIsNotNull();
 
 

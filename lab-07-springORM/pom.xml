@@ -9,10 +9,10 @@
         <relativePath/> <!-- lookup parent from repository -->
     </parent>
     <groupId>com.cydeo</groupId>
-    <artifactId>lab-07-springORM</artifactId>
+    <artifactId>lab-07-orm-queries</artifactId>
     <version>0.0.1-SNAPSHOT</version>
-    <name>lab-07-springORM</name>
-    <description>lab-07-springORM</description>
+    <name>lab-07-orm-queries</name>
+    <description>lab-07-orm-queries</description>
     <properties>
         <java.version>11</java.version>
     </properties>
@@ -31,10 +31,6 @@
             <groupId>org.projectlombok</groupId>
             <artifactId>lombok</artifactId>
             <optional>true</optional>
-        </dependency>
-        <dependency>
-            <groupId>org.springframework.boot</groupId>
-            <artifactId>spring-boot-starter-web</artifactId>
         </dependency>
         <dependency>
             <groupId>org.springframework.boot</groupId>

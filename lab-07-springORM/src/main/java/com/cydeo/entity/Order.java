@@ -1,7 +1,9 @@
 package com.cydeo.entity;
 
 import lombok.Data;
+import lombok.Getter;
 import lombok.NoArgsConstructor;
+import lombok.Setter;
 
 import javax.persistence.Entity;
 import javax.persistence.ManyToOne;
@@ -12,7 +14,8 @@ import java.math.BigDecimal;
 @Entity
 @Table(name = "orders")
 @NoArgsConstructor
-@Data
+@Getter
+@Setter
 public class Order extends BaseEntity{
 
     private BigDecimal paidPrice;
@@ -27,8 +30,11 @@ public class Order extends BaseEntity{
     @OneToOne
     private Payment payment;
 
-
-
-
-
+    @Override
+    public String toString() {
+        return "Order{" +
+                "paidPrice=" + paidPrice +
+                ", totalPrice=" + totalPrice +
+                '}';
+    }
 }
