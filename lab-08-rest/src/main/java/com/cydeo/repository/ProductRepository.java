@@ -1,6 +1,7 @@
 package com.cydeo.repository;
 
 import com.cydeo.entity.Category;
+import com.cydeo.entity.Customer;
 import com.cydeo.entity.Product;
 import org.springframework.data.jpa.repository.JpaRepository;
 import org.springframework.data.jpa.repository.Query;
@@ -37,5 +38,8 @@ public interface ProductRepository extends JpaRepository<Product, Long> {
     //Write a native query to get all product by specific categoryId and price greater than specific amount
     @Query(value = "select * from product p join product_category_rel pl on pl.p_id = p.id where pl.c_id in(?1) and p.price > ?2 " , nativeQuery = true)
     List<Product> retrieveProductListByCategory(List<Long> categoryId, BigDecimal price);
+
+    List<Product> getAllByPriceAndQuantity(BigDecimal price, Integer quantity);
+
 
 }

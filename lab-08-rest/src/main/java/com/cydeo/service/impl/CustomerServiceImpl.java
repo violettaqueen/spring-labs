@@ -41,7 +41,7 @@ public class CustomerServiceImpl implements CustomerService {
     @Override
     public CustomerDTO getCustomerByEmail(String email) {
         Customer customer = customerRepository.retrieveByCustomerEmail(email);
-        CustomerDTO customerDTO = mapperUtil.convert(customer, new CustomerDTO());
+        CustomerDTO customerDTO= mapperUtil.convert(customer, new CustomerDTO());
         return customerDTO;
     }
 
