@@ -23,8 +23,7 @@ public class DiscountServiceImpl implements DiscountService {
     @Override
     public DiscountDTO getDiscountByName(String name) {
         Discount discount = discountRepository.findFirstByName(name);
-        DiscountDTO discountDTO = mapperUtil.convert(discount, new DiscountDTO());
-        return discountDTO;
+        return mapperUtil.convert(discount, new DiscountDTO());
     }
 
     @Override

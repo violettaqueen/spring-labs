@@ -26,8 +26,7 @@ public class CustomerServiceImpl implements CustomerService {
     @Override
     public CustomerDTO findById(Long id) {
         Optional<Customer> customer = customerRepository.findById(id);
-        CustomerDTO customerDTO = mapperUtil.convert(customer, new CustomerDTO());
-        return customerDTO;
+        return mapperUtil.convert(customer, new CustomerDTO());
     }
 
     @Override
@@ -41,8 +40,7 @@ public class CustomerServiceImpl implements CustomerService {
     @Override
     public CustomerDTO getCustomerByEmail(String email) {
         Customer customer = customerRepository.retrieveByCustomerEmail(email);
-        CustomerDTO customerDTO= mapperUtil.convert(customer, new CustomerDTO());
-        return customerDTO;
+        return mapperUtil.convert(customer, new CustomerDTO());
     }
 
     @Override

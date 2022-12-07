@@ -57,8 +57,7 @@ public class ProductServiceImpl implements ProductService {
     @Override
     public ProductDTO getProductByName(String name) {
         Product productToFind = productRepository.findFirstByName(name);
-        ProductDTO foundProduct = mapperUtil.convert(productToFind, new ProductDTO());
-        return foundProduct;
+        return mapperUtil.convert(productToFind, new ProductDTO());
     }
 
     @Override
@@ -72,8 +71,7 @@ public class ProductServiceImpl implements ProductService {
 
     @Override
     public Integer getProductListByPrice(BigDecimal price) {
-       Integer productList = productRepository.countProductByPriceGreaterThan(price);
-        return productList;
+        return productRepository.countProductByPriceGreaterThan(price);
     }
 
     @Override
