@@ -28,19 +28,19 @@ public class DiscountController {
 
     @PostMapping
     public ResponseEntity<ResponseWrapper> createDiscount(@RequestBody DiscountDTO discountDTO) {
-        discountService.save(discountDTO);
-        return ResponseEntity.ok(new ResponseWrapper("Discount is successfully created", discountService.save(discountDTO), HttpStatus.OK));
+        return ResponseEntity.ok(new ResponseWrapper("Discount is successfully created",
+                discountService.save(discountDTO), HttpStatus.OK));
     }
 
     @PutMapping
     public ResponseEntity<ResponseWrapper> updateDiscount(@RequestBody DiscountDTO discountDTO) {
-        discountService.update(discountDTO);
-        return ResponseEntity.ok(new ResponseWrapper("Discount is successfully updated", discountService.update(discountDTO), HttpStatus.OK));
+        return ResponseEntity.ok(new ResponseWrapper("Discount is successfully updated",
+                discountService.update(discountDTO), HttpStatus.OK));
     }
 
     @GetMapping("/{name}")
     public ResponseEntity<ResponseWrapper> getDiscountByName(@PathVariable("name") String name) {
-        DiscountDTO discountDTO = discountService.getDiscountByName(name);
-        return ResponseEntity.ok(new ResponseWrapper("Discount by name is successfully retrieved", discountDTO, HttpStatus.OK));
+        return ResponseEntity.ok(new ResponseWrapper("Discount by name is successfully retrieved",
+                discountService.getDiscountByName(name), HttpStatus.OK));
     }
 }

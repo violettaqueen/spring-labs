@@ -84,8 +84,8 @@ public class ProductServiceImpl implements ProductService {
     }
 
     @Override
-    public List<ProductDTO> getProductListByCategoryListAndPrice(ProductRequest productRequest) {
-        List<Product> productList = productRepository.retrieveProductListByCategory(productRequest.getCategoryList(), productRequest.getPrice());
+    public List<ProductDTO> getProductListByCategoryListAndPrice(List<Long> categoryList, BigDecimal price) {
+        List<Product> productList = productRepository.retrieveProductListByCategory(categoryList, price);
         return productList.stream()
                 .map(product -> mapperUtil.convert(product, new ProductDTO()))
                 .collect(Collectors.toList());

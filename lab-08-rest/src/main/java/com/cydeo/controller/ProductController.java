@@ -80,7 +80,7 @@ public class ProductController {
     @PostMapping("/categoryandprice")
     public ResponseEntity<ResponseWrapper> getProductListByCategoryAndPrice(@RequestBody ProductRequest productRequest) {
 
-        List<ProductDTO> productDTOList = productService.getProductListByCategoryListAndPrice(productRequest);
+        List<ProductDTO> productDTOList = productService.getProductListByCategoryListAndPrice(productRequest.getCategoryList(), productRequest.getPrice());
         return ResponseEntity.ok(new ResponseWrapper("Product list is successfully retrieved", productDTOList, HttpStatus.OK));
     }
 }
